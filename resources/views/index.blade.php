@@ -11,7 +11,7 @@
                     </h1>
                 </div>
 
-                <a href="#" class="btn btn-light text-dark fs-5">Registrar-se</a>
+                <a href="{{ route('register.form') }}" class="btn btn-light text-dark fs-5">Registrar-se</a>
             </div>
         </header>
 
@@ -44,13 +44,23 @@
 
                                 <div class="mb-3">
                                     <label for="email" class="form-label fs-5">Email:</label>
-                                    <input type="email" class="form-control" id="email" name="email">
+                                    <input type="email" class="form-control" id="email" name="email" value="{{old('email')}}">
                                 </div>
+                                @if ($errors->has('email'))
+                                    <div class="alert alert-danger">
+                                        {{ $errors->first('email') }}
+                                    </div>
+                                @endif
 
                                 <div class="mb-3">
                                     <label for="password" class="form-label fs-5">Senha:</label>
                                     <input type="password" class="form-control" id="password" name="senha">
                                 </div>
+                                @if ($errors->has('senha'))
+                                    <div class="alert alert-danger">
+                                        {{ $errors->first('senha') }}
+                                    </div>
+                                @endif
 
                                 <button type="submit" class="btn btn-info text-dark fs-5 fw-bold">
                                     Entrar
