@@ -22,10 +22,10 @@
                         <hr class="text-dark py-5">
                     </div>
                     <div class="col-md-6">
-                        <h2 class="text-info fw-bold mb-4">Bem-vindo ao Gerenciador de Hábitos!</h2>
+                        <h2 class="text-info fw-bold mb-4 py-5 px-3">Bem-vindo ao Gerenciador de Hábitos!</h2>
 
                         <p class="fs-5">
-                            Este aplicativo foi desenvolvido para ajudá-lo a acompanhar e gerenciar seus hábitos
+                            Esta aplicação foi desenvolvida para ajudá-lo a acompanhar e gerenciar seus hábitos
                             diários de forma eficaz. Com uma interface simples e intuitiva, você pode adicionar,
                             visualizar e monitorar seus hábitos com facilidade.
                         </p>
@@ -39,8 +39,15 @@
                     {{-- Login --}}
                     <div class="col-md-6">
                         <div class="p-4 rounded-3 border border-secondary">
-                            <form action="#" method="POST">
+                            <form action="{{ route('login.submit') }}" method="post">
                                 @csrf
+                                <h1 class="text-info fs-1 text-center py-4">Login</h1>
+
+                                @if (session('success'))
+                                    <div class="alert alert-success">
+                                        {{ session('success') }}
+                                    </div>
+                                @endif
 
                                 <div class="mb-3">
                                     <label for="email" class="form-label fs-5">Email:</label>
@@ -62,14 +69,11 @@
                                     </div>
                                 @endif
 
-                                <button type="submit" class="btn btn-info text-dark fs-5 fw-bold">
+                                <button type="submit" class="btn btn-info text-dark fs-5 mx-auto d-block mt-4 px-4">
                                     Entrar
                                 </button>
                             </form>
                         </div>
-                    </div>
-                    <div class="row">
-                        <hr class="text-dark py-5">
                     </div>
                     <div class="row">
                         <hr class="text-dark py-5">
