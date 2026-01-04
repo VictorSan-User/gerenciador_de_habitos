@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use App\Models\Usuario;
 
 class MainController extends Controller
 {
@@ -11,6 +12,7 @@ class MainController extends Controller
         return view('index');
     }
     public function dashboard() :View {
-        return view('dashboard');
+        $usuario = Usuario::findOrFail(session('user_id'));
+        return view('dashboard', ['usuario' => $usuario]);
     }
 }

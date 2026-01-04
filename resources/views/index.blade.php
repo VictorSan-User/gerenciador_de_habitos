@@ -5,9 +5,9 @@
         <header class="py-3 border-bottom">
             <div class="container d-flex justify-content-between align-items-center">
                 <div class="d-flex align-items-center">
-                    <i class="bi bi-check2-circle text-info fs-2 me-2"></i>
+                    <i class="bi bi-check2-circle text-success fs-2 me-2"></i>
                     <h1 class="text-white fs-3 m-0">
-                        metas.<span class="text-info">diárias</span>
+                        metas.<span class="text-success">diárias</span>
                     </h1>
                 </div>
 
@@ -22,7 +22,7 @@
                         <hr class="text-dark py-5">
                     </div>
                     <div class="col-md-6">
-                        <h2 class="text-info fw-bold mb-4 py-5 px-3">Bem-vindo ao Gerenciador de Hábitos!</h2>
+                        <h2 class="text-success fw-bold mb-4 py-5 px-3">Bem-vindo ao Gerenciador de Hábitos!</h2>
 
                         <p class="fs-5">
                             Esta aplicação foi desenvolvida para ajudá-lo a acompanhar e gerenciar seus hábitos
@@ -32,7 +32,7 @@
 
                         <p class="fs-5">
                             Comece agora mesmo a
-                            <span class="text-info">construir uma rotina saudável e produtiva</span>!
+                            <span class="text-success">construir uma rotina saudável e produtiva</span>!
                         </p>
                     </div>
 
@@ -41,7 +41,7 @@
                         <div class="p-4 rounded-3 border border-secondary">
                             <form action="{{ route('login.submit') }}" method="post">
                                 @csrf
-                                <h1 class="text-info fs-1 text-center py-4">Login</h1>
+                                <h1 class="text-success fs-1 text-center py-4">Login</h1>
 
                                 @if (session('success'))
                                     <div class="alert alert-success">
@@ -69,7 +69,7 @@
                                     </div>
                                 @endif
 
-                                <button type="submit" class="btn btn-info text-dark fs-5 mx-auto d-block mt-4 px-4">
+                                <button type="submit" class="btn btn-success text-light fs-5 mx-auto d-block mt-4 px-4">
                                     Entrar
                                 </button>
                             </form>

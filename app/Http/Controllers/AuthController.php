@@ -8,8 +8,7 @@ use Illuminate\View\View;
 
 class AuthController extends Controller
 {
-    public function login_Submit(Request $request)
-    {
+    public function login_Submit(Request $request) {
         // Validação dos dados de login
         $credentials = $request->validate([
             'email' => ['required', 'email'],
@@ -20,7 +19,7 @@ class AuthController extends Controller
         $usuario = Usuario::where('email', $credentials['email'])->first();
         if( $usuario && password_verify($credentials['senha'], $usuario->senha) ) {
             // Autenticação bem-sucedida
-            session()->put('user', $usuario);
+            session(['user_id' => $usuario->id]);
 
             return redirect()->route('dashboard');
         }else{
@@ -29,31 +28,11 @@ class AuthController extends Controller
                 'email' => 'E-mail ou senha incorretos.',
             ])->onlyInput('email');
         }
-
-        if (empty($credentials['email'])) {
-            return back()->withErrors([
-                'email' => 'O email é obrigatório.',
-            ])->onlyInput('email');
-        }
-
-        if (empty($credentials['senha'])) {
-            return back()->withErrors([
-                'senha' => 'A senha é obrigatória.',
-            ])->onlyInput('email');
-        }
-
-        // Falha na autenticação
-        return back()->withErrors([
-            'email' => 'E-mail ou senha incorretos.',
-        ])->onlyInput('email');
     }
 
     public function logout(Request $request)
     {
-        auth()->Auth::logout();
-
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
+        $request->session()->flush();
 
         return redirect('/');
     }
