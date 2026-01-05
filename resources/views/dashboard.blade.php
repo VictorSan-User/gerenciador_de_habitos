@@ -22,13 +22,16 @@
                 <div class="col-2 fs-4">
                     <ul class="nav flex-column pt-3 gap-3 px-2">
                         <li class="nav-item">
-                            <a class="nav-link text-success bg-light rounded-1" href="#"><i class="bi bi-clipboard-data-fill me-2"></i>Minhas Metas</a>
+                            <a class="nav-link text-success bg-light rounded-1" href="{{ route('metas.index') }}"><i class="bi bi-clipboard-data-fill me-2"></i>Minhas Metas</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-success bg-light rounded-1" href="#"><i class="bi bi-list-task me-2"></i>Tarefas do Dia</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-success bg-light rounded-1" href="#"><i class="bi bi-calendar3 me-2"></i>Calendário</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-success bg-light rounded-1" href="#"><i class="bi bi-pencil-fill me-2"></i>Minhas Anotações</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-success bg-light rounded-1" href="#"><i class="bi bi-gear-fill me-2"></i>Configurações</a>
