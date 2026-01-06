@@ -11,15 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('metas', function (Blueprint $table) {
+        Schema::create('tarefas', function (Blueprint $table) {
             $table->id();
             $table->string('titulo');
             $table->text('descricao')->nullable();
-            $table->date('data_inicio');
-            $table->date('data_fim')->nullable();
-            $table->enum('status', ['pendente', 'andamento', 'concluida'])->default('pendente');
-            $table->unsignedBigInteger('usuario_id');
-            $table->foreign('usuario_id')->references('id')->on('usuarios')->onDelete('cascade');
+            $table->date('data')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('metas');
+        Schema::dropIfExists('tarefas');
     }
 };

@@ -1,48 +1,49 @@
 @extends('layouts.addBootstrap')
+
 @section('content')
-    <body class="bg-dark">
-        <div class="container">
-            <div class="row pt-5">
-                <div class="col-11">
-                    @if(session('success'))
-                        <div class="alert alert-success">
-                            {{ session('success') }}
-                        </div>
-                    @endif
+    <body class="bg-dark text-white">
+        <div class="container mt-5">
+            <h2 class="text-success mb-4">Minhas Metas:</h2>
+            <hr class="text-light">
 
-                    <h1 class="fs-1 text-start text-success">Minhas Metas:</h1>
-                    <hr class="text-light">
-                </div>
-                <div class="col-1 text-light">
-                    <a href="{{ route('dashboard') }}" class="btn btn-light px-2 text-dark"><i class="bi bi-x-lg"></i></a>
-                </div>
-                @foreach($metas as $meta)
-                    <div class="col-4 mb-4">
-                        <div class="card mb-3">
+            <div class="row">
+                @foreach ($metas as $meta)
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card bg-dark border-success h-100 d-flex flex-column">
+
                             <div class="card-body">
-                                <h5 class="card-title text-success"><strong>{{ $meta->titulo }}</strong></h5>
-                                <p class="card-text text-dark"><strong>{{ $meta->descricao }}</strong></p>
-                                <p class="card-text">
-                                    <small class="text-muted">Início: {{ $meta->data_inicio }} | Fim: {{ $meta->data_fim }} | Status: {{ $meta->status }}</small>
+                                <h5 class="text-white card-title">
+                                    {{ $meta->titulo }}
+                                </h5>
+                                <p class="text-success small mb-1">
+                                    Início: {{ $meta->data_inicio }} | Fim: {{ $meta->data_fim }} | Status: {{ $meta->status }}
                                 </p>
-                            </div>
-                            <div class="col-2">
-                                <a href="#" class="btn btn-primary">Editar</a>
-                            </div>
-                            <div class="col-2">
-                                <a href="#" class="btn btn-success">Detalhes</a>
-                            </div>
-                        </div>
+                                <hr class="text-light">
 
+                                @if ($meta->descricao)
+                                    <p class="card-text text-light">
+                                        {{ Str::limit($meta->descricao, 150) }}
+                                    </p>
+                                @endif
+                            </div>
+
+                            <div class="card-footer bg-transparent border-0 mt-auto d-flex justify-content-start">
+                                <a href="{{ route('metas.edit', $meta->id) }}" class="btn btn-primary btn-sm me-2">Editar</a>
+                                <a href="{{ route('metas.show', $meta->id) }}" class="btn btn-success btn-sm">Detalhes</a>
+                            </div>
+
+                        </div>
                     </div>
                 @endforeach
             </div>
-            <div class="row">
-                <div class="col-12">
-                    <a href="{{ route('metas.create') }}" class="btn btn-success px-5"><i class="bi bi-pin-fill me-2"></i>Criar Meta</a>
+
+            {{-- botao pra criar meta --}}
+            <div class="mt-4">
+                <a href="{{ route('metas.create') }}" class="btn btn-success btn-sm mb-1">Nova Meta</a>
             </div>
+            <a href="{{ route('dashboard') }}" class="btn btn-primary btn-sm">Voltar</a>
+
+
         </div>
-
-
     </body>
 @endsection
