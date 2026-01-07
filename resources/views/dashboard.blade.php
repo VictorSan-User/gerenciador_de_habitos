@@ -25,7 +25,7 @@
                             <a class="nav-link text-success bg-light rounded-1" href="{{ route('metas.index') }}"><i class="bi bi-clipboard-data-fill me-2"></i>Minhas Metas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-success bg-light rounded-1" href="#"><i class="bi bi-list-task me-2"></i>Tarefas do Dia</a>
+                            <a class="nav-link text-success bg-light rounded-1" href="{{ route('tarefas.index') }}"><i class="bi bi-list-task me-2"></i>Tarefas do Dia</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-success bg-light rounded-1" href="#"><i class="bi bi-calendar3 me-2"></i>Calendário</a>

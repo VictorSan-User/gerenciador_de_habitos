@@ -3,6 +3,11 @@
 @section('content')
     <body class="bg-dark text-white">
         <div class="container mt-5">
+            @if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
             <h2 class="text-success mb-4">Minhas Metas:</h2>
             <hr class="text-light">
 

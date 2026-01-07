@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\metaController;
+use App\Http\Controllers\tarefasController;
 use Termwind\Components\Raw;
 
 Route::get('/', [MainController::class, 'index'])->name('index');
@@ -23,3 +24,10 @@ Route::get('/metas/{id}/edit', [metaController::class, 'edit'])->name('metas.edi
 Route::post('/metas/{id}/update', [metaController::class, 'update'])->name('metas.update');
 Route::get('/metas/{id}/destroy/confirm', [metaController::class, 'destroy_confirm'])->name('metas.destroy.confirm');
 Route::delete('/metas/{id}/destroy', [metaController::class, 'destroy'])->name('metas.destroy');
+
+//tarefas
+Route::get('/tarefas', [tarefasController::class, 'index'])->name('tarefas.index');
+Route::get('/tarefas/create', [tarefasController::class, 'create'])->name('tarefas.create');
+Route::post('/tarefas/store', [tarefasController::class, 'store'])->name('tarefas.store');
+Route::get('/tarefas/{id}', [tarefasController::class, 'show'])->name('tarefas.show');
+Route::get('/tarefas/{id}/edit', [tarefasController::class, 'edit'])->name('tarefas.edit');
