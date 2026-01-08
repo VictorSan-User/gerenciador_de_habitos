@@ -31,7 +31,7 @@
                                 <div class="ms-3 text-end d-block">
                                     <a href="{{ route('tarefas.edit', $tarefa->id) }}" class="btn btn-primary btn-sm mb-1">Editar</a><br>
                                     <a href="{{ route('tarefas.show', $tarefa->id) }}" class="btn btn-success btn-sm mb-1">Detalhes</a><br>
-                                    <a href="#" class="btn btn-danger btn-sm">Finalizar</a>
+                                    <a href="{{ route('tarefas.destroy', $tarefa->id) }}" class="btn btn-danger btn-sm">Finalizar</a>
                                 </div>
 
                             </div>

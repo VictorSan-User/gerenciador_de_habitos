@@ -55,9 +55,9 @@ class tarefasController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
-    {
-        //
+    public function edit(string $id):View {
+        $tarefa = Tarefa::findOrFail($id);
+        return view('editar_tarefa', ['tarefa' => $tarefa]);
     }
 
     /**
@@ -65,7 +65,17 @@ class tarefasController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'titulo' => 'required|string|max:255',
+            'descricao' => 'nullable|string',
+        ]);
+
+        $tarefa = Tarefa::findOrFail($id);
+        $tarefa->titulo = $request->input('titulo');
+        $tarefa->descricao = $request->input('descricao');
+        $tarefa->save();
+
+        return redirect()->route('tarefas.index')->with('success', 'Tarefa atualizada com sucesso!');
     }
 
     /**
@@ -73,6 +83,9 @@ class tarefasController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $tarefa = Tarefa::findOrFail($id);
+        $tarefa->delete();
+
+        return redirect()->route('tarefas.index')->with('success', 'Tarefa finalizada com sucesso!');
     }
 }

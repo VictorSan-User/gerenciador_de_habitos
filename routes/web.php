@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\anotacoesController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
@@ -31,3 +32,10 @@ Route::get('/tarefas/create', [tarefasController::class, 'create'])->name('taref
 Route::post('/tarefas/store', [tarefasController::class, 'store'])->name('tarefas.store');
 Route::get('/tarefas/{id}', [tarefasController::class, 'show'])->name('tarefas.show');
 Route::get('/tarefas/{id}/edit', [tarefasController::class, 'edit'])->name('tarefas.edit');
+Route::put('/tarefas/{id}/update', [tarefasController::class, 'update'])->name('tarefas.update');
+Route::get('/tarefas/{id}/destroy', [tarefasController::class, 'destroy'])->name('tarefas.destroy');
+
+//anotacoes
+Route::get('/anotacoes', [anotacoesController::class, 'index'])->name('anotacoes.index');
+Route::get('/anotacoes/create', [anotacoesController::class, 'create'])->name('anotacoes.create');
+Route::post('/anotacoes/store', [anotacoesController::class, 'store'])->name('anotacoes.store');
