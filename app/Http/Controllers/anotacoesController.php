@@ -26,8 +26,15 @@ class anotacoesController extends Controller
         $anotacao = new Anotacoes();
         $anotacao->titulo = $request->input('titulo');
         $anotacao->conteudo = $request->input('conteudo');
+        $anotacao->usuario_id = session('user_id');
         $anotacao->save();
 
         return redirect()->route('anotacoes.index')->with('success', 'Anotação criada com sucesso!');
+    }
+
+    public function destroy(string $id) {
+        $destroy = Anotacoes::findOrFail($id);
+        $destroy->delete();
+        return view('anotacoes_home')->with('success', 'Anotação removida com sucesso!');
     }
 }

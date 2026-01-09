@@ -39,3 +39,4 @@ Route::get('/tarefas/{id}/destroy', [tarefasController::class, 'destroy'])->name
 Route::get('/anotacoes', [anotacoesController::class, 'index'])->name('anotacoes.index');
 Route::get('/anotacoes/create', [anotacoesController::class, 'create'])->name('anotacoes.create');
 Route::post('/anotacoes/store', [anotacoesController::class, 'store'])->name('anotacoes.store');
+Route::get('/anotacoes/{îd}/destroy', [anotacoesController::class, 'destroy'])->name('anotacoes.destroy');
